@@ -9,7 +9,6 @@ from .. import db, photos
 from datetime import datetime
 import secrets
 import os
-# from PIL import Image
 from ..email import mail_message
 import requests
 
@@ -25,22 +24,6 @@ def index():
     blogs = Blog.query.order_by(Blog.posted.desc()).paginate(page = page,per_page = 3)
     return render_template('index.html', blogs=blogs, quotes = quotes)
 
-# @main.route('/blogposts/new', methods = ['GET', 'POST'])
-# @login_required
-# def new_blogpost():
-#     form = BlogPostForm()
-#     if form.validate_on_submit():
-#         description = form.description.data
-#         title = form.title.data
-#         owner_id = current_user
-#         date = date.now
-#         new_blogpost = BlogPost(owner_id = current_user._get_current_object().id, title = title, description = description)
-#         db.session.add(new_blogpost)
-#         db.session.commit()
-
-#         return redirect(url_for('main.index'))
-
-#     return render_template('blogposts.html', form = form)
 
 @main.route('/comment/new/<int:blog_id>', methods = ['GET', 'POST'])
 @login_required
@@ -67,12 +50,7 @@ def about():
     '''
     return render_template('about.html')
 
-@main.route('/contact')
-def contact():
-    '''
-    View function that returns the contact page
-    '''
-    return render_template('contact.html')
+
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -175,12 +153,11 @@ def subscribe():
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
 
-@main.route('/blog/<blog_id>/delete', methods=['POST'])
+@main.route('/blog/<blog_id>/delete', methods=['POST', 'GET'])
 @login_required
 def del_post(blog_id):
     blog = Blog.query.get(blog_id)
-    if blog.user != current_user:
-        abort(403)
+    
     db.session.delete(blog)
     db.session.commit()
 
