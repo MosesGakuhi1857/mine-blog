@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../static/photos/blog03.jpg'); margin-top: 40px; height: 700px; background-repeat: no-repeat; background-size: cover;background-position: center;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1 style="color:rgb(34, 25, 8);position:relative;top:200px;left:20px;font-size: 3rem;font-weight:700" >About Carnation</h1>
+          <span class="subheading" style="color:rgb(38, 38, 182);position:relative;top:200px;left:20px;font-weight: 700;font-size: 2rem;">This is what we do.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <p>Carnation is a blog site for people who are car enthusiats and on regular there are post on cars and heavy machines</p>
+      <p>Moses Gakuhi is the author behind the carnation blog it was established on 27 september 2021.</p>
+      <p>Are you a car enthusiats who has a knack for guzzlers?Carnation is here to quench your thirst buckle up you seats and let us give your a taste cars out there</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
+
+{% endblock %}
