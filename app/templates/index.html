@@ -8,8 +8,20 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1 style="color:aliceblue;position:relative;top:200px;left:20px;font-size: 2rem;font-weight:700;">Carnation</h1>
-          <span class="subheading" style="color:aliceblue;position:relative;top:200px;left:20px;font-weight: 700;font-size: 2rem;" >Welcome to my car nation</span>
+        
+         
+          <span class="subheading" style="color:aliceblue;position:relative;top:200px;left:20px;font-weight: 700;font-size: 2rem;" >{{ quotes['quote']}}</span>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <h4 class="text-center" style="color:aliceblue;text-decoration: itallic;">{{ quotes['author']}}</h4>
         </div>
       </div>
     </div>
@@ -44,14 +56,6 @@
     <h4 class="text-center">{{ quotes['author']}}</h4>
     <p class="text-center">{{ quotes['quote']}}</p>
   </div>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-</div>
 {% block footer %}
 {% include 'footer.html' %}
 {% endblock %}

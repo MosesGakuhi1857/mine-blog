@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_login import LoginManager
 from flask_uploads import UploadSet,configure_uploads,IMAGES
+from flask_wtf.csrf import CSRFProtect
 
 # Instances of flask extesnions
 login_manager = LoginManager()
@@ -13,6 +14,7 @@ login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 db = SQLAlchemy()
 bootstrap = Bootstrap()
+csrf = CSRFProtect()
 # fa = FontAwesome()
 photos = UploadSet('photos', IMAGES)
 
@@ -37,6 +39,7 @@ def create_app(config_name):
     db.init_app(app)
     bootstrap.init_app(app)
     login_manager.init_app(app)
+    csrf.init_app(app)
     # fa.init_app(app)
 
     # Registering the main blueprint
